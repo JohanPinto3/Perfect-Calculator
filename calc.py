@@ -1,4 +1,5 @@
-# Function definitions
+# Smart Calculator with Power and Floor Division
+
 def add(x, y):
     return x + y
 
@@ -15,7 +16,7 @@ def divide(x, y):
 
 def modulus(x, y):
     if y == 0:
-        return "Error: Modulus by zero"
+        return "Error: Division by zero"
     return x % y
 
 def power(x, y):
@@ -49,7 +50,7 @@ while True:
     show_menu()
     choice = input("Enter choice (1-7 or 'exit'): ")
 
-    if choice.lower() =='exit':
+    if choice.lower() == 'exit':
         print("Goodbye!")
         break
 
@@ -58,11 +59,12 @@ while True:
             num1 = float(input("Enter first number: "))
             num2 = float(input("Enter second number: "))
         except ValueError:
-            print("Invalid input. Please enter numbers only.")
+            print("❌ Invalid input. Please enter valid numbers.")
             continue
 
         operation_name, operation_func = operations[choice]
         result = operation_func(num1, num2)
-        print(f"{operation_name} Result: {num1} and {num2} => {result}")
+        print(f"\n✅ {operation_name} Result: {num1} and {num2} => {result}")
     else:
-        print("Invalid input. Please choose a valid option (1-7) or type 'exit'.")
+        print("❌ Invalid option. Choose between 1-7 or type 'exit'.")
+
